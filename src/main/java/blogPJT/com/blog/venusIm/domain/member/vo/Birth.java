@@ -1,4 +1,6 @@
-package blogPJT.com.blog.venusIm.domain.member.entity.vo;
+package blogPJT.com.blog.venusIm.domain.member.vo;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -14,4 +16,10 @@ public class Birth {
     private String year;
     private String month;
     private String day;
+
+    @JsonValue
+    public String Birth() {
+        return birth;
+    }
+
 }

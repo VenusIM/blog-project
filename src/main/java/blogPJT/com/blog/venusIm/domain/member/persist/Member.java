@@ -1,25 +1,22 @@
-package blogPJT.com.blog.venusIm.domain.member.entity;
+package blogPJT.com.blog.venusIm.domain.member.persist;
 
-import blogPJT.com.blog.venusIm.domain.member.entity.vo.Birth;
-import blogPJT.com.blog.venusIm.domain.member.entity.vo.NickName;
-import blogPJT.com.blog.venusIm.domain.member.entity.vo.Password;
-import blogPJT.com.blog.venusIm.domain.member.entity.vo.RoleType;
+import blogPJT.com.blog.venusIm.domain.member.vo.Birth;
+import blogPJT.com.blog.venusIm.domain.member.vo.NickName;
+import blogPJT.com.blog.venusIm.domain.member.vo.Password;
+import blogPJT.com.blog.venusIm.domain.member.vo.RoleType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Member {
 
-    @Id
-    @Column(name = "member_idx")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_idx", nullable = false, updatable = false)
     private Long id;
 
     @Embedded
@@ -31,7 +28,7 @@ public class Member {
     @Embedded
     private Birth birth;
 
-    @Embedded
+    @Enumerated(value = EnumType.STRING)
     private RoleType roleType;
 
     private String regDate;
