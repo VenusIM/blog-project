@@ -4,6 +4,7 @@ import blogPJT.com.blog.venusIm.domain.member.vo.Birth;
 import blogPJT.com.blog.venusIm.domain.member.vo.NickName;
 import blogPJT.com.blog.venusIm.domain.member.vo.Password;
 import blogPJT.com.blog.venusIm.domain.member.vo.RoleType;
+import blogPJT.com.blog.venusIm.global.common.BaseDateEntity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Member {
+public class Member extends BaseDateEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_idx", nullable = false, updatable = false)
