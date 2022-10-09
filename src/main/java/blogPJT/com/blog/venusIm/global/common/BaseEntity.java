@@ -13,8 +13,8 @@ public class BaseEntity extends BaseDateEntity {
 
     @CreatedBy
     @Column(updatable = false)
-    private String createdBy;
+    private Long createdUser;
 
     @LastModifiedBy
-    private String updateDate;
+    private Long updateUser;
 }
